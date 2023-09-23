@@ -39,12 +39,12 @@ template <typename T> void to_bytes(const T& s, void* bytes);
 template <typename T> void from_bytes(T& s, const void* bytes);
 
 
-uint32_t get_current_time_ms()
+static inline uint32_t get_current_time_ms()
 {	
     return std::chrono::duration_cast<std::chrono::milliseconds >(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
-uint8_t calc_crc8(const uint8_t* data, uint8_t length)
+static uint8_t calc_crc8(const uint8_t* data, uint8_t length)
 {
     uint8_t crc = 0xff;
     size_t i, j;
